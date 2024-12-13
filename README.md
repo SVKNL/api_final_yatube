@@ -1,2 +1,25 @@
 # api_final
-api final
+# Как запустить проект:
+
+- Скопировать репозиторий -git clone:
+```
+git@github.com:SVKNL/api_final_yatube.git
+```
+
+- Cоздать и активировать виртуальное окружение:
+```
+python3 -m venv env
+source env/bin/activate
+```
+- Установить зависимости из файла requirements.txt:
+```
+pip install -r requirements.txt
+```
+- Выполнить миграции:
+```
+python3 manage.py migrate
+```
+- Запустить проект:
+```
+python3 manage.py runserver
+```
