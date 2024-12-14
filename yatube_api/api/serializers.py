@@ -9,7 +9,8 @@ User = get_user_model()
 
 
 class PostSerializer(serializers.ModelSerializer):
-    author = serializers.SlugRelatedField(slug_field='username', read_only=True)
+    author = serializers.SlugRelatedField(slug_field='username',
+                                          read_only=True)
 
     class Meta:
         fields = '__all__'
@@ -52,5 +53,3 @@ class FollowSerializer(serializers.ModelSerializer):
         if self.context['request'].user == User.objects.get(username=data):
             raise serializers.ValidationError('User cant self-follow')
         return data
-
-

@@ -1,7 +1,7 @@
 from rest_framework import filters, mixins, viewsets
 from rest_framework.generics import get_object_or_404
 from rest_framework.pagination import LimitOffsetPagination
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated
 
 from .permissions import IsAuthorOrReadOnly
 from .serializers import (CommentSerializer,
@@ -9,7 +9,6 @@ from .serializers import (CommentSerializer,
                           GroupSerializer,
                           PostSerializer)
 from posts.models import Group, Post
-
 
 
 class ListCreateViewSet(mixins.CreateModelMixin, mixins.ListModelMixin,
@@ -58,4 +57,3 @@ class CommentViewSet(viewsets.ModelViewSet):
 class GroupViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
-
